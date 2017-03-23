@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="example">
+    <form>
+        name:
+        <input type="text" v-model="data.name" placeholder="">
+        <span>name:{{data.name}}</span>
+        <br/>
+        sex:
+        <input type="radio" id="man" value="one" v-model="data.sex">
+        <label for="man">Man</label>
+        <input type="radio" id="male" value="two" v-model="data.sex">
+        <label for="male">Male</label>
+        <br/>
+        interest:
+        <input type="checkbox" id="book" value="book" v-model="data.interest">
+        <label for="book">Book</label>
+        <input type="checkbox" id="swim" value="swim" v-model="data.interest">
+        <label for="swim">Swim</label>
+        <input type="checkbox" id="game" value="game" v-model="data.interest">
+        <label for="game">Game</label>
+        <input type="checkbox" id="song" value="song" v-model="data.interest">
+        <label for="song">Song</label>
+        <br/>
+        identity:
+        <select v-model="data.identity">
+            <option v-for="option in data.options" :value="option.value">
+                {{option.text}}
+            </option>
+        </select>
+        <span>bizLine:{{data.identity}}</span>
+    </form>
+</div>
+
+<div id="example1">
+    <ul id="demo">
+        <li v-for="(item,indexNo) in items" track-by="_uid">
+            {{indexNo}} - {{parentMessage}} {{item.msg}}
+        </li>
+        <span v-text="msg"></span>
+        <span>{{msg}}</span>
+    </ul>
+</div>
+
+<div id="example2">
+    <div :class="[classA,{classB:isB,classC:isC}]">
+        example2_1
+    </div>
+    <div v-bind="{id:idProp,otherAttr:otherAttrProp}">
+        example2_2
+    </div>
+</div>
+
+<div id="example3">
+    <button @click="doThis"></button>
+    <button @click="doThat('hello',$event)"></button>
+    <button @click.stop="doThis"></button>
+    <button @click.prevent="doThis"></button>
+    <form @submit.prevent></form>
+    <button @click.stop.prevent="doThis">stop</button>
+    <input @keyup.enter="onEnter">
+    <input @keyup.13="onEnter">
+</div>
+
+<div id="example4">
+    <span ref="msg" @click="pop1">hello</span>
+    <span ref="other-msg" @click="pop2">world</span>
+</div>
+
+<div id="example5">
+    <div id="hook-arguments-example" v-demo:hello.a.b="message"></div>
+</div>
+
+<div id="example6" v-demo1="{color:'white',text:'hello'}"></div>
+
+</body>
+<script>
+    var example = new Vue({
+        el: "#example",
+        data: {
+            data: {
+                name: "这是一个初始值",
+                sex: "",
+                interest: [],
+                identity: 'teacher',
+                options: [
+                    {text: 'Teacher', value: 'teacher'},
+                    {text: 'Doctor', value: 'doctor'},
+                    {text: 'Lawyer', value: 'lawyer'}
+                ]
+            }
+
+        }
+    })
+
+    var example1 = new Vue({
+        el: "#demo",
+        data: {
+            parentMessage: "创联致信",
+            items: [{_uid:"111",msg: "产品部门"}, {_uid: "222",msg: "研发部门"}],
+            msg:"v-text的message测试"
+        }
+    })
+
+    var example2 = new Vue({
+        el:"#example2",
+        data:{
+            classA:"A",
+            isB:true,
+            isC:false,
+            idProp:"example2_2",
+            otherAttrProp:"otherAttrProp2_2"
+        }
+    })
+
+    var example3 = new Vue({
+        el:"#example3",
+        data:{
+            doThis: function () {
+                alert(1);
+            },
+            doThat: function (text, ev) {
+                alert(text);
+                alert(ev.target);
+            },
+            onEnter: function () {
+                alert("enter");
+            }
+        }
+    })
+
+    var example4 = new Vue({
+        el:"#example4",
+        data:{
+            pop1:function(){
+                alert(this.$refs.msg.textContent);
+            },
+            pop2: function () {
+                alert(this.$refs.otherMsg.textContent);
+            }
+        }
+
+    })
+
+
+    Vue.directive('demo', {
+        bind: function (el, binding, vnode) {
+            var s = JSON.stringify
+            el.innerHTML =
+                'name: ' + s(binding.name) + '<br>' +
+                'value: ' + s(binding.value) + '<br>' +
+                'expression: ' + s(binding.expression) + '<br>' +
+                'argument: ' + s(binding.arg) + '<br>' +
+                'modifiers: ' + s(binding.modifiers) + '<br>' +
+                'vnode keys: ' + Object.keys(vnode).join(', ')
+        }
+    })
+
+    var example5 = new Vue({
+        el: '#hook-arguments-example',
+        data: {
+            message: 'hello!'
+        }
+    })
+
+    Vue.directive('demo1',{
+        bind:function(el,bingding){
+            console.log(bingding.value.color);
+            console.log(bingding.value.text);
+        }
+    })
+
+    var example6 = new Vue({
+        el:'#example6'
+    })
+</script>
+</html>

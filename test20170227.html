@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="example1">
+    <input type="text" v-model="didi"/>
+    <input type="text" v-model="family"/>
+    <button @click="changeDidiFamily">changeDidiFamily</button>
+    <br/>
+    didi={{didi}} family={{family}} didiFamily={{didiFamily}}
+</div>
+
+<div id="items">
+    <div v-for="item in items">
+        <button>{{item.text}}</button>
+    </div>
+</div>
+
+<div id="ex2">
+    <input type="checkbox" id="flash" value="flash" v-model="bizLines">
+    <label for="flash">快车</label>
+    <input type="checkbox" id="premiun" value="premiun" v-model="bizLines">
+    <label for="flash">专车</label>
+    <input type="checkbox" id="bus" value="bus" v-model="bizLines">
+    <label for="flash">巴士</label>
+    <br/>
+    <span>Checked lines:{{bizLines}}</span>
+</div>
+
+</body>
+<script>
+    var ex2 = new Vue({
+        el:"#ex2",
+        data:{
+            bizLines:[]
+        }
+    })
+
+    var ex1 = new Vue({
+        el: "#example1",
+        data: {
+            didi: " haha1",
+            family: " haha2",
+            changeDidiFamily: function () {
+                ex1.didiFamily = "nnnnnn mmmmmm";
+            }
+        },
+        computed: {
+            didiFamily: {
+                get: function () {
+                    return this.didi + ' ' + this.family;
+                },
+                set: function (newVal) {
+                    var names = newVal.split(' ');
+                    this.didi = names[0];
+                    this.family = names[1];
+                }
+
+            }
+        }
+    })
+
+    var ex2 = new Vue({
+        el: "#items",
+        data: {
+            items: [{number: 1, text: "one"},{number: 2, text: "two"}]
+        }
+    })
+</script>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/js/components/menu.jsp" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/js/plugins/popWin/BootStrapPopWin.js" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/resource/AdminLTE/dist" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/resource/bootstrap/css" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/resource/bootstrap/fontIcon" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/resource/bootstrap/fonts" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/resource/bootstrap/js" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
