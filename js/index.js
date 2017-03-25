@@ -7,9 +7,9 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
 import '../resource/bootstrap/css/bootstrap.css';
 import '../resource/bootstrap/fontIcon/font-awesome/4_6_1/css/font-awesome.min.css';
-import '../resource/AdminLTE/dist/css/AdminLTE.css';
-import '../resource/AdminLTE/dist/ext-css/AdminLTE-itim.css';
-import '../resource/AdminLTE/dist/css/skins/_all-skins.css';
+import '../resource/adminLTE/dist/css/AdminLTE.css';
+import '../resource/adminLTE/dist/ext-css/AdminLTE-itim.css';
+import '../resource/adminLTE/dist/css/skins/_all-skins.css';
 
 import Pay from './components/Pay';
 import {router} from './router';

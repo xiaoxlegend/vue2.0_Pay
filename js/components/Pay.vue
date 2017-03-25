@@ -12,7 +12,7 @@
     import $ from 'jquery';
     import jQuery from 'jquery';
     import initBootStrap from '../../resource/bootstrap/js/bootstrap.min.js'
-    import initHomeApp from '../../resource/AdminLTE/dist/js/app.min.js';
+    import initHomeApp from '../../resource/adminLTE/dist/js/app.min.js';
 
     export default {
         created() {
