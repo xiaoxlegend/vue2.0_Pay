@@ -2,6 +2,12 @@
  * Component: Sidebar
  * ------------------
  */
+.main-header {
+    position: relative;
+    max-height: 100px;
+    z-index: 1000;
+}
+
 .main-sidebar,
 .left-side {
     position: absolute;
@@ -10,7 +16,7 @@
     padding-top: 0px;
     min-height: 100%;
     width: 230px;
-    z-index: 1032;
+    z-index: 1000;
     -webkit-transition: -webkit-transform 0.3s ease-in-out, width 0.3s ease-in-out;
     -moz-transition: -moz-transform 0.3s ease-in-out, width 0.3s ease-in-out;
     -o-transition: -o-transform 0.3s ease-in-out, width 0.3s ease-in-out;

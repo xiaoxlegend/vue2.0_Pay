@@ -1,9 +1,9 @@
+#.gitignore 配置文件用于配置不需要加入版本管理的文件
+
 #npm
-node_modules/
+/node_modules/*
+/dist/*
 npm-debug.log
 
 #osx
 .DS_Store
-
-#dist
-#dist/

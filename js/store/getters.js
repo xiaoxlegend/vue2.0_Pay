@@ -3,5 +3,9 @@
  */
 export default {
     staffOnlineState: state=> state.staffState.staffOnlineState,
-    welcomeWordShow: state=> state.welcome.welcomeWord
+    welcomeWordShow: state=> state.welcome.welcomeWord,
+    pmData:state=>state.pmData,
+    modal_add:state=>state.modal_add,
+    dataTable:state=>state.dataTable,
+    formValidate:state=>state.formValidate
 }

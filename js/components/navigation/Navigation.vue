@@ -32,7 +32,21 @@
                         </li>
                     </ul>
                 </li>
+                <li>
+                    <router-link :to="{ name: 'pm' }">
+                        <i class="fa fa-th"></i> <span>项目管理</span>
+                    </router-link>
+                </li>
             </ul>
         </section>
     </aside>
 </template>
+<script>
+    export default{
+        data:function(){
+
+        },
+        methods:{
+        }
+    }
+</script>
